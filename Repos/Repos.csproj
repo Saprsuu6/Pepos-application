@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Icons\foldersearchfilelocatefinddocument-115838_115791.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="foldersearchfilelocatefinddocument-115838_115791.png" />
+    <None Remove="source_repository_icon_135163.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Icons\foldersearchfilelocatefinddocument-115838_115791.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="foldersearchfilelocatefinddocument-115838_115791.png" />
+  </ItemGroup>
+
+</Project>

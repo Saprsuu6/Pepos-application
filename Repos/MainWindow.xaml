@@ -1,0 +1,29 @@
+﻿<Window x:Class="Repos.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Repos"
+        mc:Ignorable="d"
+        Title="Хранилище" Height="300" Width="600" MinHeight="300" WindowStartupLocation="CenterScreen" MinWidth="600" Icon="/foldersearchfilelocatefinddocument-115838_115791.png" Background="#FF84A226" FontSize="14">
+    <UniformGrid Columns="2">
+        <DockPanel Margin="10">
+            <TextBlock Background="White" Text="Запрещённые символы: \/:*?&quot;&gt;&lt;|" DockPanel.Dock="Top" FontSize="14"/>
+            <TextBox DockPanel.Dock="Top" Name="RepoName" Background="White" TextChanged="RepoName_TextChanged" Margin="0,5,0,0" TextBlock.FontSize="14"/>
+            <UniformGrid Rows="5">
+                <Button Content="Новое" Name="NewFile" Margin="0,5,0,0" Click="NewFile_Click" TextBlock.FontSize="14"/>
+                <Button IsEnabled="False" Content="Удалить Папку" Name="RemoveFolder" Margin="0,5,0,0" Click="RemoveFolder_Click" TextBlock.FontSize="14"/>
+                <Button IsEnabled="False" Content="Удалить Файл(ы)" x:Name="RemoveFile" Margin="0,5,0,0" Click="RemoveFile_Click" TextBlock.FontSize="14"/>
+                <Button IsEnabled="{Binding ElementName=Repos, Path=Items.Count}" Content="Переименоавть хранилище" x:Name="RenameRepo" Margin="0,5,0,0" Click="RenameRepo_Click" TextBlock.FontSize="14"/>
+                <Button IsEnabled="False" Content="Переименоавть файл" x:Name="RenameFile" Margin="0,5,0,0" TextBlock.FontSize="14" Click="RenameFile_Click"/>
+            </UniformGrid>
+        </DockPanel>
+
+        <DockPanel Margin="10">
+            <ComboBox IsEnabled="False" IsEditable="True" DockPanel.Dock="Top" Name="Repos" SelectionChanged="Repos_SelectionChanged" Margin="0,0,0,5" TextBlock.FontSize="14"/>
+            <ComboBox IsEnabled="{Binding ElementName=Files, Path=Items.Count}" DockPanel.Dock="Bottom" Name="Extention" SelectionChanged="Extention_SelectionChanged" TextBlock.FontSize="14"/>
+            <TextBox IsEnabled="{Binding ElementName=Files, Path=Items.Count}" Name="FileName" DockPanel.Dock="Bottom" Margin="0,0,0,5" TextChanged="FileName_TextChanged" TextBlock.FontSize="14"/>
+            <ListBox SelectionMode="Extended" IsEnabled="False" Name="Files" SelectionChanged="Files_SelectionChanged" Margin="0,0,0,5" MouseDoubleClick="Files_MouseDoubleClick" TextBlock.FontSize="14"/>
+        </DockPanel>
+    </UniformGrid>
+</Window>
